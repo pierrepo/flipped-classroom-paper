@@ -1,0 +1,626 @@
+% Template for PLoS
+% Version 3.5 March 2018
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file 
+% and leave only the final text of your manuscript. 
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
+%
+%
+% There are no restrictions on package use within the LaTeX files except that 
+% no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column. 
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+%
+% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.2in}
+
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf\newline{Ten simple rules for implementing a flipped classroom} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+Pierre Poulain\textsuperscript{1*},
+Mickael Bertrand\textsuperscript{2},
+Héloise Dufour\textsuperscript{3,4},
+Antoine Taly\textsuperscript{5,6*},
+%Name5 Surname\textsuperscript{2\ddag},
+%Name6 Surname\textsuperscript{2\ddag},
+%Name7 Surname\textsuperscript{1,2,3*},
+
+%with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
+\bigskip
+\textbf{1} Université de Paris, CNRS, Institut Jacques Monod, F-75006, Paris, France
+\\
+\textbf{2} Éducation nationale, Académie de Dijon, Lycée Anna Judic de Semur-en-Auxois
+\\
+\textbf{3} Cercle FSER, Paris, France
+\\
+\textbf{4} Inversons la Classe !, France
+\\
+\textbf{5} CNRS, Université de Paris, UPR 9080, Laboratoire de Biochimie Théorique, Paris, France
+\\
+\textbf{6} Institut de Biologie Physico-Chimique, Fondation Edmond de Rothschild, PSL Research University, Paris, France
+\\
+\bigskip
+
+% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% 
+% Remove or comment out the author notes below if they aren't used.
+%
+% Primary Equal Contribution Note
+%\Yinyang These authors contributed equally to this work.
+
+% Additional Equal Contribution Note
+% Also use this double-dagger symbol for special authorship notes, such as senior authorship.
+%\ddag These authors also contributed equally to this work.
+
+% Current address notes
+%\textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
+% \textcurrency b Insert second current address 
+% \textcurrency c Insert third current address
+
+% Deceased author note
+%\dag Deceased
+
+% Group/Consortium Author Note
+%\textpilcrow Membership list can be found in the Acknowledgments section.
+
+% Use the asterisk to denote corresponding authorship and provide email address in note below.
+* taly@ibpc.fr, pierre.poulain@u-paris.fr
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+
+This article aims to share some tips on implementing a flipped classroom, with examples from biology and computational biology. 
+The proposed rules are:
+
+\begin{itemize}
+\item Invert time and say it.
+\item Identify (or create) resources for learning at home.
+\item Be explicit on the acquisition of knowledge and engage students at home.
+\item Explore active learning in class.
+\item Develop skills of cooperation and sharing.
+\item Evaluate.
+\item Differentiate.
+\item Take care of the logistic and your posture.
+\item Document your flipped classroom.
+\item Share.
+\end{itemize}
+
+
+% Please keep the Author Summary between 150 and 200 words
+% Use first person. PLOS ONE authors please skip this step. 
+% Author Summary not valid for PLOS ONE submissions.   
+\section*{Author summary}
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+\linenumbers
+
+% Use "Eq" instead of "Equation" for equation citations.
+\section*{Introduction}
+
+This manuscript aims to share some tips on implementing a flipped classroom, with examples from biology and computational biology. 
+The original idea of the flipped classroom is to reconsider the place of the work done in autonomy (at home, in a library...) and in class, with the teacher, in order 
+to reach a more active and effective learning experience \cite{bergmann_flip_2012,schell_flipping_2015}. 
+It is important to note that many practices are associated with the generic term 'flipped classroom'.
+We will not detail here all the different forms, but we rather refer readers to comprehensive articles on the subject
+\cite{bishop_flipped_2013,lebrun_vers_2016}.
+
+A question often raised is that of the effectiveness of flipped classrooms. This question will not be addressed specifically in this paper, but we can, however, formulate some general remarks on this topic.
+
+It is difficult to make an overall assessment of flipped classrooms because this wording refers to many
+practices, very different from each other. However, studies have shown positive effects of some protocols
+\cite{casasola_can_2017, crouch_peer_2001, freeman_reply_2014}, including the case of students facing
+difficulties \cite{lage_inverting_2000}. For the specific case of computational biology classes, 
+Compeau published detailed and positive feedback on this pedagogy \cite{compeau_establishing_2019}.
+In addition, series of meta-analysis identified by John Hattie \cite{hattie2014, hattie2018}, suggests a significant efficiency of flipped classrooms
+\cite{chen_academic_2019,hew_flipped_2018,karagol_effect_2019,tan_effectiveness_2017}. 
+A recent second-order meta-analysis confirmed this statement and showed that flipped classroom also
+significantly improves student cognitive and behavioral learning as compared to conventional 
+classroom \cite{hew_does_2020}.
+Finally, the research is far from over and several research articles call for more studies to assess
+flipped classrooms 
+\cite{abeysekera_motivation_2015,bishop_flipped_2013,hew_does_2020,lo_critical_2017}.
+
+
+% Results and Discussion can be combined.
+\section{10 simple rules}
+
+The 10 simple rules presented below are inspired by the French national conference on flipped classrooms called CLIC, which takes place 
+in Paris since 2015. They derived from the presentation of one of the authors (MB) at CLIC~2018, augmented by the remarks 
+of the audience during the presentation, recommendations of one of the references \cite{lo_critical_2017} and re-analyzed in our practitioner's point of view and from the perspective of the current literature.
+These rules have also been presented and discussed during the 2020 edition of the CLIC conference (CLIC~2020).
+
+
+\subsection{Rule 1. Invert time and Say It }
+
+The basic principle of flipped classroom invites considering the articulation of teaching and learning time \cite{bergmann_flip_2012,schell_flipping_2015}. While school and university have long worked on a transmissive model, 
+the question is now of no longer performing solely frontal courses \cite{crouch_peer_2001}.
+
+The spread of this practice was accompanied by a reflection on the nature of the tasks self-directed by learners. 
+It's not about giving more \cite{lo_critical_2017}, but to slide out of the classroom activities of lower cognitive level, 
+and to perform in-class tasks that require greater support from the teacher \cite{lebrun_vers_2016,anderson_taxonomy_2001,bloom_taxonomy_1956,sarawagi_flipped_2014} (Table 1). 
+With this model, the transmission of knowledge is done remotely, but its assimilation can be done face-to-face, 
+via sessions of active pedagogy \cite{freeman_reply_2014}. 
+The inverted class then makes it possible to maximize the 'active' time in the classroom 
+by moving the discovery of knowledge outside the classroom, with similar efficiency \cite{delozier_flipped_2017}.
+
+
+% Place tables after the first paragraph in which they are cited.
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\centering
+\caption{{\bf Activities performed in autonomy and it the classroom with the teacher (left and middle columns) in relation with Bloom's taxonomy (right column)}}
+\begin{tabular}{|l|l|l|}
+\hline
+{\bf Traditional classroom} & {\bf Flipped classroom} & {\bf Bloom's taxonomy} \\ \thickhline
+In the classroom & In autonomy & Remember \\ \hline
+In the classroom & In autonomy & Understand \\ \hline
+In the classroom / in autonomy & In autonomy / in the classroom & Apply \\ \hline
+In autonomy & In the classroom & Create, Evaluate, Analyze \\ \hline
+
+
+
+\end{tabular}
+%\begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
+%\end{flushleft}
+\label{table1}
+\end{adjustwidth}
+\end{table}
+
+
+When preparing a flipped course, the teacher needs to design activities that can support 
+the acquisition of elements of knowledge by students in autonomy. For instance:
+
+\begin{enumerate}
+
+\item At the beginning of a course, prerequisites can be reactivated or introductory concepts can be addressed.
+
+\item Before a class, activities engage students with the material they have to study. 
+Activities can also prepare learners to confront a complex task.
+
+\item Along the course, the teacher can also provide learners a synthesis of the knowledge 
+(cheatsheets, quick reference card, memento) to be later mobilized to address a complex task.
+
+\item At the end of the course, students could work on a summary of the course.
+
+\end{enumerate}
+
+Flipped classrooms modify how teaching is traditionally performed. To support learners in this pedagogy, 
+teachers need to explain how the course is organized, for instance by providing detailed instructions in
+their syllabus \cite{grunert_obrien_course_2008}. One way to enforce being explicit on what students 
+are expected to do at home and in class is to clearly define pedagogical objectives also termed 'learning outcomes'. 
+While defining pedagogical objectives for flipped classrooms, teachers have to keep in mind 
+that activities performed at home by the students should be related to cognitive categories 'Remember', 'Understand' 
+or `Apply' as presented in Table 1. Eventually, teachers should also state clearly how course assessments 
+are conducted and specify the learning material.
+
+
+\subsection{Rule 2. Identify (or create) resources for learning at home}
+
+The fact students have tasks to do in autonomy means they need some material to read, to watch, or even to interact with. 
+Most teachers will first try to generate their own media. This could be time-consuming and sometimes discouraging, 
+especially if the teacher aims to produce high-quality video content steadily. We advocate for the reuse of resources 
+openly available on-line or in the physical world. These can be textbooks, books, web-documentaries, handouts, video clips, 
+MOOC excerpts, Wikipedia articles, etc. The choice is made according to students' needs and pedagogical objectives. 
+Some selection criteria could be resource trustworthiness, author's level of expertise, chapter or video length, 
+presence of a detailed plan, presence of companion exercises\ldots{} However, after a careful assessment, the teacher will 
+have to appropriate the selected material and, if needed, comment or expand it. In other terms, he/she will have 
+to integrate this resource into her/his pedagogical mindset.
+
+For video resources specifically, Guo et al. \cite{guo_how_2014} recommend choosing or creating short videos, 6 minutes or less, 
+with a 'Khan academy' style in which the teacher draws explanations on the screen.  Other detailed recommendations are available 
+on this subject \cite{mayer_cambridge_2005}. Many video resources are freely available online, from Youtube to open education
+resources. Spend some time browsing them.
+
+If you decide to create your own resources, try to implement the change gradually \cite{lo_critical_2017}. 
+Instead of creating something new from scratch, you could use resources, protocols, and lesson plans 
+shared by others, i.e. start from something that worked elsewhere.
+
+Once teaching material has been selected, there are many ways to share it with students:
+
+\begin{itemize}
+
+\item In a closed face-to-face system (for example, a handout distributed in class). 
+No digital tool is required here.
+
+\item In a closed remote online system, for example with a learning management system (LMS) like Moodle, Blackboard, Canvas, 
+or with shared cloud drives.
+
+\item In a remote open system, e.g. a class blog or a website.
+
+\end{itemize}
+
+Regarding digital means to distribute teaching materials, some aspects need to be emphasized:
+
+\begin{itemize}
+
+\item  It is crucial to ensure access to all students \cite{lo_critical_2017}. 
+Students need to have the right equipment at home (internet connection, computer, or tablet) 
+or access to a library properly equipped.
+
+\item It is also necessary to accompany learners for each new approach and tool used \cite{lo_critical_2017}.
+
+\item If sharing material through an open system is not imperative, it has several positive effects. 
+Not only does it make available resources for other colleges and teachers, 
+but it also provides a way to receive feedback from the community.
+
+\end{itemize}
+
+\subsection{Rule 3. Be explicit on the acquisition of knowledge and engage students at home}
+
+At the start of the course, be explicit about how the students will
+work at home (see rule \#1). In addition to a detailed syllabus, it is
+recommended to make a first session dedicated to the setup of the
+flipped classroom and during which students can be acquainted with the teaching material
+and online tools with the help from the teacher or teaching assistants (TAs).
+Teachers also need to be patient during the first weeks, so that the
+students become confident about the method and the tools.
+
+Before class, teachers must ensure that the resources made available
+have been consulted \cite{lo_critical_2017} and the required tasks have been performed. 
+Even if the activity performed at home is of relatively low cognitive level, 
+support is required to limit the socio-academic inequalities associated 
+with work done outside the class \cite{rayou_faire_2010}. 
+Students can complete several types of activities to support their acquisition of knowledge:
+
+\begin{itemize}
+
+\item Take quizzes (possibly self-correcting) on the proposed material. 
+Tools such as traditional LMS, Learning Apps, Google Forms, etc. could be used.
+
+\item Write down open questions on paper or through digital means.
+
+\item Participate in questions and answers sessions through LMS 
+or messaging applications (Slack, Mattermost, Messenger\ldots).
+
+\item Write a summary of the studied material. 
+The produced summary can later be reviewed by peer students.
+
+\item List one thing the student found interesting and another one he/she
+wants clarifications on.
+
+\item Enrich collectively a course trail or share the results of a search on a collaborative writing document. 
+Notwithstanding, this kind of activity is subject to limited support which must be followed 
+by a class exchange session to make sure that the main elements are well acquired.
+
+\end{itemize}
+
+The introduction of a flipped classroom is likely to be destabilizing or associated with misunderstandings 
+about the objectives or about the methods employed. It is therefore crucial to communicate effectively 
+\cite{lo_critical_2017} and to straighten rule \#1. 
+Teachers need support from an efficient communication system (e-mails, social networks, LMS). 
+A forum could allow students to ask questions whose answers can then be provided by their peers 
+or the teacher, before, during, or even after class. It can also be useful to define an interaction protocol 
+(who answers to who, and when). 
+Office hours as implemented in the English-speaking world could be of great help toward this goal.
+
+
+\subsection{Rule 4. Explore active learning in class}
+
+One of the key ideas of flipping a class is to make room for active learning during the lecture \cite{delozier_flipped_2017}.
+In active learning, students are involved and engaged with the course material into a large range of activities, 
+such as discussions, quizzes, problem-solving\ldots{} 
+Active learning has been observed to improve students' achievements compared to traditional lecture-based teaching \cite{freeman_reply_2014} and some researchers suggest that the performance of flipped classrooms 
+could actually be explained by the use of active learning \cite{jensen_improvements_2015}.
+
+Many types of active learning strategies can be explored, from summarizing a book chapter to teaching part of the course \cite{fiorella_eight_2016}. Among the activities that can be recommended in class, a recent review \cite{delozier_flipped_2017} suggests:
+
+\begin{itemize}
+
+\item Quizzes with systems such as hands up, Plickers cards, clickers, 
+or any online voting systems (WooClap, Mentimeter, Kahout, Socrative...).
+
+\item Group discussions.
+
+\item Student presentations or teaching.
+
+\end{itemize}
+
+
+More original methods can also be used like simulation games \cite{taly2019molecular} or working side by side 
+with students on research questions \cite{mazzanti2017can}. 
+
+Time outside the class should not be left passive, 
+however, as any activity can be adapted in a more active manner \cite{chi_icap_2014}.
+
+In table 1, we highlighted the interest in analyzing the tasks and activities students have to perform in their learning path. 
+Most challenging tasks should be conducted in class with the guidance of the lecturer and through active learning. 
+In the field of computational biology, learning a programming language and performing a research project are typical examples 
+of learning objectives difficult to reach via traditional lecturing but that strongly benefits from active learning. 
+Interactive material such as Jupyter notebooks ~\cite{davies_using_2020,rule_ten_2019} or the Rosalind auto-correcting
+exercise collection \cite{compeau_bioinformatics_2018} are valuable resources to learn how to program
+and to discover bioinformatics algorithms.
+Engaging teams of students on open research challenges is also a unique opportunity to learn what a research project is about \cite{abdollahi2018meet}.
+
+The number of pedagogical strategies proposed could be overwhelming for a teacher who would like to try flipped classrooms. 
+However, it should be kept in mind that errors are acceptable. 
+Many iterations could be necessary to obtain an acceptable pedagogical scenario \cite{compeau_establishing_2019}. 
+In that regard, one interesting and encouraging observation is the 'teacher effect', 
+i.e. that enthusiastic teachers have a positive effect just by trying ~\cite{hattie_visible_2008}. 
+We do interpret this observation as a right to tinker!
+
+
+\subsection{Rule 5. Develop skills of cooperation and sharing}
+
+A potential advantage of flipped classrooms is that they could develop cooperation skills among students \cite{strayer_how_2012}. 
+It has also been observed that cooperation is an important parameter allowing the efficiency of a flipped classroom \cite{foldnes_flipped_2016}.
+
+Typical examples of an activities that can be performed in teams are edition of a share documents, creation of video or edition of Wikipedia pages ~\cite{logan_ten_2010}. In this perspective, many tools now have a 'collaborative' feature to promote team production (Framapad, Prezi, Quizizz, Google Docs, wikis, etc.). 
+In the field of computational biology, it is also possible to edit and share computer code \cite{abdollahi2018meet} with the help of version control systems and online collaborative development platforms such as GitHub, Gitlab and others \cite{blischak_quick_2016}. Events such as coding hackathon can also be challenging opportunities.
+
+To the extent that cooperation is a pedagogical objective, it is appropriate to assess the nature of the collaborative work \cite{lebrun_vers_2016}. One way to do this is to involve peers in evaluation \cite{lopez}.
+
+
+\subsection{Rule 6. Evaluate}
+
+Regular assessments are essential for the success of a flipped classroom. Assessment of the knowledge acquired during preparatory
+activities (in autonomy) is useful not only to ensure these activities have been seriously realized by the students but also to diagnose 
+and bring targeted and immediate remediation. 
+In class, voting systems such as Plickers, Quizizz, Woolcap, Kahoot, Socrative, etc. provide instant feedback on the knowledge 
+acquired by the students.
+
+Beyond the assessment of students and their learning, it is important to evaluate the pedagogical protocols used. 
+Among the indicators for evaluating a flipped classroom, it is interesting not to consider only grades obtained by students, 
+but also broader criteria such as absenteeism, conflict, autonomy, cooperation, etc. 
+
+Course evaluation surveys filled by students also provide valuable feedback.
+
+The need for research being important \cite{abeysekera_motivation_2015,bishop_flipped_2013,lo_critical_2017}, studies conducted 
+by teachers could provide a basis for participatory research.
+
+\subsection{Rule 7. Differentiate}
+
+Lo and Hew recommended individualized learning objectives ~\cite{lo_critical_2017}. Although flipped classrooms are not sufficient
+alone to perform differentiation, they facilitate its implementation. All tasks and activities performed by a student provide a record
+of student learning and progress. This learning trace makes possible diagnoses and facilitates differentiation and remediation.
+
+Flipped classrooms require being explicit (rule \#3) regarding the organization of the course (learning outcomes, assessments, 
+teaching strategies, learning materials\ldots). We believe this could benefit students with special needs. 
+In addition, given that the transmissive part is studied individually and autonomously, by students, 
+it can in principle be adapted to student needs (e.g. using different fonts or color schemes).
+
+
+\subsection{Rule 8. Take care of the logistic and your posture}
+
+Engaging students to work on teaching material outside the classroom requires teachers to anticipate a broad, inclusive, 
+and seamless access to their material. Some technical solutions have already been provided above.
+
+In class, some material will be needed to allow teamwork such as paperboard and sticky notes. 
+In order to favor learning situations in teams, the need to reorganize the space in the class
+quickly becomes apparent. 
+This arrangement aims to facilitate exchanges between students but also illustrates the change of posture of the teachers. 
+Adoption of the flipped classroom approach is usually accompanied by the reflection of the teacher on the layout of his/her
+classroom to allow him/her to no longer be in front of, or behind, his students, but close to, or even in the middle, of them. 
+The teacher then shifts 'From sage on the stage to guide on the side' \cite{king_sage_1993}. 
+This organization often results in the establishment of work islands within which each team is invited to prepare 
+an empty chair for the teacher to be then 'beside the students'.
+
+
+\subsection{Rule 9. Document your flipped classroom}
+
+One advantage of a flipped classroom is to bring experiment and discovery back in the classroom. All these trials and errors 
+need to be documented and written down, to keep tracks but also to allow retrospective analysis of the pedagogical approach used.
+
+We advise after each class to take a few minutes to write down what happened during the class, both positive and negative points 
+and highlight what could be improved in the next class. The students can be involved in that process. 
+In our experience, adjustments proposed by students are often useful. Moreover, the process of consulting them goes 
+in the direction of nurturing their intrinsic motivation \cite{oraif_university_2018,thai_impact_2017}.
+
+
+\subsection{Rule 10. Share}
+
+As stated in the introduction, there is not one but many flipped classrooms. Yours will probably not be your colleague's flipped
+classroom. After one or more years, your experience will be valuable. Share it!
+
+You can publish your feedback as tweets, blog posts, or even research articles. To foster sharing and exchange, 
+we encourage you to share your documents under open licenses such as Creative Commons Attribution (CC-BY) or Creative Commons Attribution Share Alike (CC-BY-SA).
+
+It is also possible to share/publish student's productions, that then enter in their portfolio, which in turn will document their competencies. 
+In the field of bioinformatics a particularly appealing option is the sharing of coding productions via development platforms such as GitHub or Gitlab \cite{blischak_quick_2016,abdollahi2018meet}.
+
+
+\section*{Conclusion}
+
+This article aims to gather some tips for implementing a flipped classroom. In addition to changing 
+the teacher's posture ('From sage on the stage to guide on the side' \cite{king_sage_1993}), 
+the inverted class approach does change the atmosphere and working conditions for both the teachers 
+and the students.
+
+Designing and setting up a flipped classroom is often accompanied by an increased workload that 
+could be limited by adopting several strategies mentioned above: use of resources produced by others,
+automated corrections or peers assignments \cite{guilbault_classe_2017}. Working in pedagogical teams or communities of practice is also a way of sharing the burden of work.
+
+One aspect we also highlighted is the lack of research on flipped classrooms \cite{hew_does_2020}. 
+It will therefore be important to enable participatory research on the subject to evaluate 
+and document the multiple forms of flipped classrooms.
+
+
+\section*{Acknowledgments}
+{CLIC~2018 and CLIC~2020 participants}
+
+\nolinenumbers
+
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% or
+%
+% Compile your BiBTeX database using our plos2015.bst
+% style file and paste the contents of your .bbl file
+% here. See http://journals.plos.org/plosone/s/latex for 
+% step-by-step instructions.
+% 
+
+\bibliography{flipped}
+
+\end{document}
+
