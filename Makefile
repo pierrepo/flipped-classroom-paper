@@ -1,2 +1,2 @@
 pdf:
-	pdflatex 10_simples_rules_flipped.tex
+	pdflatex 10_simple_rules_flipped_classroom.tex
